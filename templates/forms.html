@@ -1,0 +1,45 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<p>
+    <h3> {{msg}} </h3>
+</p>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="co">
+            {% if forms %}
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {% for field in forms %}
+                        <div class="form-group">
+                            {{field}}
+                        </div>
+                    {% endfor %}
+               
+                <input type="submit" value="Add book" class="btn btn-outline-primary">
+                </form>
+                {% else %}
+                    <p class="text.danger"> No forms available </p>
+            {% endif %}
+        </div>
+    <div class="col"></div>
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- 
+<h1>
+    {{head}}
+</h1>
+
+<form action="" method="POST">
+     {{csrf_token}}  comment this later
+    {% csrf_token %}
+    {{forms}}
+    
+    <input type="submit" value="submit" class="btn btn-primary">
+</form>
+
+ --> 
