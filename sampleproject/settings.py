@@ -25,7 +25,7 @@ SECRET_KEY = '&d7%p5d53*2v+8++cgjwoc-0k6m7hd8+z6&0r6f9+l!yspgav('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['vast-reef-92212.herokuapp.com']
 
 
 # Application definition
@@ -84,6 +84,10 @@ DATABASES = {
     }
 }
 
+import dj_database_url
+db_from_env=dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+DATABASES['default']['CONN_MAX_AGE']=500
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
